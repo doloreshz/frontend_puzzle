@@ -14,6 +14,7 @@ game目录底下是一个
 Bonus（加分项）
 
 1. 工程里面有哪些界面设计的问题
+问题回答在/frontend_puzzle-master/question_answer.txt中
 2. 下面给出的API比较简单，如果邮件可能很多，例如几千上万条，那么这个API是否合理，应该如何修改？
 
 ## 设计一个简单的邮件展示的逻辑
