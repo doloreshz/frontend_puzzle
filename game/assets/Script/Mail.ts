@@ -1,31 +1,25 @@
-// Learn TypeScript:
-//  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/typescript.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/manual/en/scripting/typescript.html
-// Learn Attribute:
-//  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/reference/attributes.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/manual/en/scripting/reference/attributes.html
-// Learn life-cycle callbacks:
-//  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/manual/en/scripting/life-cycle-callbacks.html
+export default class Mail {
+    mailId: string;
+    title: string;
+    body: string;
+    isReaded: boolean;
+    receiveTime: string;
 
-const {ccclass, property} = cc._decorator;
-
-@ccclass
-export default class NewClass extends cc.Component {
-
-    @property(cc.Label)
-    label: cc.Label = null;
-
-    @property
-    text: string = 'hello';
-
-    // LIFE-CYCLE CALLBACKS:
-
-    // onLoad () {}
-
-    start () {
-
+    constructor(id) {
+        var strId = String(id);
+        this.mailId = strId;
+        this.title = 'test-title-' + strId;
+        this.body = 'test-body-' + strId;
+        this.isReaded = false;
+        this.receiveTime = String(new Date());
     }
 
-    // update (dt) {}
+    init(isReaded: boolean, receiveTime: string) {
+        this.isReaded = isReaded;
+        this.receiveTime = receiveTime;
+    }
+
+    setIsReaded(val) {
+        this.isReaded = val;
+    }
 }
