@@ -1,0 +1,15 @@
+1.工程里需要动态加载的prefab应该都放在resource中
+2.邮件界面没有“邮箱”标题，突兀
+3.手机端的邮件界面，滚动条可以不显示出来
+4.下方的按钮不对称
+5.mail场景中的Mail节点没有加Widget,使得修改模拟器尺寸时会有黑边，只有default选项正常
+6.prefab中的MailBrief的标题Title Label的属性中Overflow最好选择SHRINK的排版，MailDetail中的也是
+7.prefab中的MailBrief的bg底色灰色，和已读之后颜色太过相近，导致已读之后很难看出文字（bg底色我没有进行修改,只是指出来）
+
+
+使用：
+直接run之后，在mail场景的start调用了接口onButtonRefresh进行拉新操作，这里默认每次拉新都会把该用户所有
+邮件发送下来，由于模拟服务器发送回来的数据是在本机的文件夹\game\assets\Script\testData中，所以每次拉新都是同样数据。
+
+在每个按钮操作需要和服务器进行交互的地方，都做了单机模拟，模拟服务器响应调用回调函数，所以会看到在button的回调函数中会调用一次网络层的接口。
+
