@@ -80,13 +80,18 @@ METHOD: GET
                 "body": { "type": "string" },
                 "isReaded": { "type": "boolean" },
                 "receiveTime": { "type": "string"}
-            },
-            "required": ["street_address", "city", "state"]
+            }
         }
     },
     "type": "object",
     "properties": {
-        "mails": {"$ref": "#/definitions/mail"}
+        "mails": {
+            "type": "array",
+            "items":  {
+                "type": "object",
+                "$ref": "#/definitions/mail"
+            }
+        }
     }
 }
 ```
