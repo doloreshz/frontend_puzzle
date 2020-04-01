@@ -1,0 +1,39 @@
+{
+  "mails": [
+    {
+      "mailId": "1",
+      "title": "获得武器",
+      "body": "挂机时获得无尽之刃",
+      "isReaded": false,
+      "receiveTime": "2020年03月31日 9:30"
+    },
+    {
+      "mailId": "2",
+      "title": "损失金币",
+      "body": "挂机时遭遇妙手空空，失去3800金币",
+      "isReaded": false,
+      "receiveTime": "2020年03月31日 11:15"
+    },
+    {
+      "mailId": "3",
+      "title": "活动通知",
+      "body": "今晚18:30分在线可获得振奋盔甲",
+      "isReaded": false,
+      "receiveTime": "2020年03月31日 14:20"
+    },
+    {
+      "mailId": "4",
+      "title": "偶遇奸商",
+      "body": "你以3600金币的高价买下了多兰之盾",
+      "isReaded": false,
+      "receiveTime": "2020年03月31日 14:20"
+    },
+    {
+      "mailId": "5",
+      "title": "活动奖励",
+      "body": "恭喜获得振奋盔甲",
+      "isReaded": false,
+      "receiveTime": "2020年03月31日 18:30"
+    }
+  ]
+}
