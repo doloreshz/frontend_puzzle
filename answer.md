@@ -1,28 +1,28 @@
-����Ҫ��
+基本要求：
 
-1. ����·���������������߼�������API���󣬽����߼�
-��
-����ĿԤ��Ч��
-2. ��Ϊ���û�о�����������Ҫ�Լ�����취����Բ�, ϣ���ύʱ����һ�����Բ���ʾ�İ汾
-��
-����Node.jsд�˸����񣬷����ַip��̬�ģ����ܻ�䣬���쿴�������û��ȡ���ʼ�����ϵ�һ�ȡ���µ�ip��
+1. 完成下方需求的三个界面逻辑，包括API请求，界面逻辑  
+答：  
+见项目预览效果  
+2. 因为后端没有就绪，所以需要自己想个办法如何自测, 希望提交时候是一个带自测演示的版本  
+答：  
+简单用Node.js写了个服务，服务地址ip动态的，可能会变，尽快看。（如果没获取到邮件，联系我获取更新的ip）  
 
-Bonus���ӷ��
+Bonus（加分项）  
 
-1. ������������Щ������Ƶ�����
-��
-һЩ����Ķ����£�
-1.1 mail.fire��
-�ֱ������������Ż���
-Path: Canvas/Mail  ����Widget�������
-Path: Canvas/Content/view  �����ڵ�view��Widget���
-�ʼ��б��Ż���
-Canvas/Content/view/content �����ʼ�Ӧ�����������Ϸ�Ϊ�ˣ��ɴ˸���layout�����VerticalDirection����ΪBOTTOM_TO_TOP
-1.2 MailDetail.prefab��
-�����Ż�
-Path: MailDetail ���Ӵ�СΪ1600/1600��bg�ڵ㣬��֤���ֱ�������ȫ���ǣ�����ֹ�����͸
+1. 工程里面有哪些界面设计的问题  
+答：  
+一些界面改动如下：  
+1.1 mail.fire：  
+分辨率适配问题优化：  
+Path: Canvas/Mail  添加Widget组件处理  
+Path: Canvas/Content/view  调整节点view的Widget组件  
+邮件列表优化：  
+Canvas/Content/view/content 新来邮件应排列在容器上方为宜，由此更改layout组件的VerticalDirection属性为BOTTOM_TO_TOP  
+1.2 MailDetail.prefab：  
+背景优化  
+Path: MailDetail 增加大小为1600/1600的bg节点，保证各分辨率下完全覆盖，并防止点击穿透  
 
-2. ���������API�Ƚϼ򵥣�����ʼ����ܺܶ࣬���缸ǧ����������ô���API�Ƿ������Ӧ������޸ģ�
-��
-��������һ��GET�������Ӧ����Я��������˶����Ϣ����ʹ���ԣ���ӦҲ�����������ͻ��˽����ʼ��б���һ�γ�ʼ��������˶��MailBrief�ڵ㣬Ҳ������������⡣
-�޸ģ��趨һ����������,һ�λ�ȡ������ʼ������������������������API���GET����url����һ������limit=10����˰��ʼ�����ʱ���Ⱥ�˳�򣬷��ز�����limitֵ�������ʼ���Ϣ��ʣ��δ�����ʼ�����remainingNum��ǰ��ͨ���ж�remainingNum�Ƿ�Ϊ0����֪�Ƿ���ʣ���ʼ�����ʣ���ʼ�������£������Ͽ��Ը���ˢ�¡���ť�Ӹ���㣬���û�֪���������ʼ������⣬����ʼ����࣬��һ��ScrollViewչʾ�ʼ��б�Ҳ��̫�У����Կ��Ƿ�ҳ��
+2. 下面给出的API比较简单，如果邮件可能很多，例如几千上万条，那么这个API是否合理，应该如何修改？  
+答：  
+不合理：一次GET请求的响应可能携带不了如此多的信息，即使可以，响应也会很慢。另外客户端界面邮件列表，一次初始化加入如此多的MailBrief节点，也会产生性能问题。  
+修改：设定一个数量限制,一次获取的最大邮件数量不超过这个数。体现在API里，如GET请求url带上一个参数limit=10，后端按邮件发送时间先后顺序，返回不超过limit值个数的邮件信息和剩余未发的邮件个数remainingNum。前端通过判断remainingNum是否为0，获知是否有剩余邮件。有剩余邮件的情况下，界面上可以给“刷新”按钮加个红点，让用户知道还有新邮件。另外，如果邮件过多，光一个ScrollView展示邮件列表也不太行，可以考虑分页。  
