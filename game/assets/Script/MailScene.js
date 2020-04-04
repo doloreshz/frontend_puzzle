@@ -9,7 +9,7 @@ cc.Class({
 
     onLoad () {
         //服务器地址
-        this.serverAdress = 'http://125.121.27.144:4567';//动态的，如果没获取到邮件，联系我获取更新的ip
+        this.serverAdress = 'http://3065i19n10.zicp.vip:4567';//花生壳域名
         //邮件数组，用于记录服务器返回的邮件数据
         this.mails = [];
         //未读邮件标题节点记录对象，key为邮件id，value为对应Title节点
