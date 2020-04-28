@@ -1,0 +1,62 @@
+﻿get response
+{
+    "definitions": {
+        "mail": {
+            "type": "object",
+            "properties": {
+                "mailId": { "type": "string" },
+                "title": { "type": "string" },
+                "body": { "type": "string" },
+                "isReaded": { "type": "boolean" },
+                "receiveTime": { "type": "string"}
+            }
+        }
+    },
+    "type": "object",
+    "properties": {
+        "mails": {
+            "type": "array",
+            "items":  {
+                "type": "object",
+                "$ref": "#/definitions/mail"
+            }
+        }
+    }
+}
+
+{
+    "mails": [
+        {
+            "mailId": "123",
+            "title": "最多36个中文字符长度！",
+            "body": "最多360个中文字符长度",
+            "isReaded": "false",
+            "receiveTime": "date" 
+        },
+        {
+            "mailId": "124",
+            "title": "最多36个中文字符长度！！",
+            "body": "最多360个中文字符长度",
+            "isReaded": "false",
+            "receiveTime": "date" 
+        }
+    ]
+}
+
+patch request
+{
+    "type": "object",
+    "properties": {
+        "mailIds": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "$comment": "就是需要标识已读的mailId"
+        }
+    }
+}
+
+{
+        "mailIds": ["1","2"]
+}

@@ -1,0 +1,2 @@
+node mailServer.js
+pause
